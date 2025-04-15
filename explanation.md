@@ -1,29 +1,40 @@
 
-Project to create docker containers and automate the deployment process for managing containers 
+#Docker Containerisation and  Docker Orchestration Explanation
+Project to create docker containers and automate the deployment process for managing containers through docker-compose.yml,docker networking and working with docker volumes.
 
 
-Prerequisites
-Github account
-Dockerhub account
-Mongodb account
+##Prerequisites
+A Github account
+Dockerhub account(to get image from registry)
+Mongodb account(for database application)
 Container Networking
 Docker Volume
+Render Account(Deployment)
 Git Workflows
 
 Step 1:Forking and cloning the repository
    Navigate to the link shared to fork the project
-   use command 
-   git clone 
-Step 1: Choosing the base image on building the containers
-   create a local image by defining the name and directory
-   Creating an image from Dockerhub registry 
+```bash
+git clone htttps://boscokosgei@github.git
+```
+##Choosing the base image on building the containers
+There are some factor to consider for choosing an image
+ we create an image from docker registry alpine as the choice of image
+ since its lightweight and the image size is small as well as versioning
+```bash
    FROM alpine in Dockerfile Directory and Node to run the frontend application
-   
-Step 2: Docker directives used in the creation and running each container
+```
+##Docker directives used in the creation and running each container
 
-Step 3:Docker-compose Networking
+##Docker-compose Networking
+This is used to create network and assign  IP to enable communication between containers
+```bash
+docker create network
+```
 
-Step 4: Docker-compose volume definition and usage
+##Docker-compose volume definition and usage
 
-Step 5: Git workflow used to achieve the task
+##Git workflow used to achieve the task
+
+
 
