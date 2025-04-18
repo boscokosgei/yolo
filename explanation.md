@@ -22,8 +22,13 @@ git clone htttps://boscokosgei@github.git
 There are some factor to consider for choosing an image
  we create an image from docker registry alpine as the choice of image
  since its lightweight and the image size is small as well as versioning
+ We will use alpine as its small and lightweight
+ adding dockeringore file to reduce the size of the image
 ```bash
-   FROM alpine in Dockerfile Directory and Node to run the frontend application
+   FROM node-16:alpine
+```
+```sh
+touch .dockerignore
 ```
 ## Docker directives used in the creation and running each container
 
@@ -34,6 +39,7 @@ docker create network
 ```
 
 ## Docker-compose volume definition and usage
+Attaching a local storage for data to persist
 
 ## Git workflow used to achieve the task
 
