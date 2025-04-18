@@ -15,3 +15,7 @@ README.md
 .vscode
 app-mongo-data
 app-mongo-data/
+node_modules
+build
+Dockerfile
+.dockerignore
