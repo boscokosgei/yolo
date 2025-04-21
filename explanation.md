@@ -32,6 +32,10 @@ touch .dockerignore
 ```
 ## Docker directives used in the creation and running each container
 
+Creating the backend and frontend of the Containers
+in Dockerfile
+```sh FROM node:16-alpine AS build 
+```
 ## Docker-compose Networking
 This is used to create network and assign  IP to enable communication between containers
 ```bash
