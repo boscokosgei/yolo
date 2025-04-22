@@ -16,7 +16,7 @@ Project to create docker containers and automate the deployment process for mana
 Step 1:Forking and cloning the repository
    Navigate to the link shared to fork the project
 ```bash
-git clone htttps://boscokosgei@github.git
+git clone https://github.com/boscokosgei/yolo.git
 ```
 ## Choosing the base image on building the containers
 There are some factor to consider for choosing an image
@@ -27,6 +27,7 @@ There are some factor to consider for choosing an image
 ```bash
    FROM node-16:alpine
 ```
+  use multistage build to reduce the image size
 ```sh
 touch .dockerignore
 ```
@@ -36,14 +37,26 @@ Creating the backend and frontend of the Containers
 in Dockerfile
 ```sh FROM node:16-alpine AS build 
 ```
+Connecting to MongoDB Database by defining in server.js file
+```sh
+ let dbName = 'yolomy';
+```
+Creating the Client Container by updating the Dockerfile to pick image from base image alpine
 ## Docker-compose Networking
 This is used to create network and assign  IP to enable communication between containers
+select class B Ip address 172.20.0.0/16
 ```bash
 docker create network
+subnet: 172.20.0.0/16
 ```
 
 ## Docker-compose volume definition and usage
 Attaching a local storage for data to persist
+```sh
+volumes:
+  app-mongo-data:
+    driver: local
+```
 
 ## Git workflow used to achieve the task
 
