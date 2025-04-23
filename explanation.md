@@ -36,12 +36,43 @@ touch .dockerignore
 Creating the backend and frontend of the Containers
 in Dockerfile
 ```sh FROM node:16-alpine AS build 
+
 ```
 Connecting to MongoDB Database by defining in server.js file
 ```sh
  let dbName = 'yolomy';
 ```
 Creating the Client Container by updating the Dockerfile to pick image from base image alpine
+
+Creating docker-compose.yml file to orchestrate the containers
+Client image to run the frontend and semver image for versioning
+```sh
+    image: boscokipkosgei/bosco-yolo-client:v1.0.0
+```
+Backend image to run the backend and semver image for versioning
+```sh
+    image: boscokipkosgei/bosco-yolo-backend:v1.0.0
+```
+Mongo DB image for database
+```sh
+   image: mongo
+```
+After creation of Containers we build the client image by running Dockerfile on client locally and push it to dockerhub
+```sh
+   docker build -t boscokipkosgei/bosco-yolo-client:v1.0.0
+   docker run -p 3000:3000 boscokipkosgei/bosco-yolo-client:v1.0.0
+   docker push boscokipkosgei/bosco-yolo-client:v1.0.0
+```
+After creation of Containers we build the Backend image by running Dockerfile on backend locally and push it to dockerhub
+```sh
+   docker build -t boscokipkosgei/bosco-yolo-backend:v1.0.0
+   docker run -p 5000:5000 boscokipkosgei/bosco-yolo-backend:v1.0.0
+   docker push boscokipkosgei/bosco-yolo-backend:v1.0.0
+```
+Finally we pull the images from docker hub and run the containers by Orchestration using docker-compose command
+```sh
+   docker-compose up
+```
 ## Docker-compose Networking
 This is used to create network and assign  IP to enable communication between containers
 select class B Ip address 172.20.0.0/16
