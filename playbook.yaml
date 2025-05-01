@@ -13,3 +13,5 @@
         name: chrony
         state: started
         enabled: yes
+    - name: Test Connectivity
+      ping:   
