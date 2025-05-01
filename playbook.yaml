@@ -1,0 +1,15 @@
+- name: Provision Vagrant VM
+  hosts: all
+  become: yes
+  tasks: 
+    - name: Ensure NTP (chrony) is installed
+      apt:
+        name: chrony
+        state: present
+        update_cache: yes
+
+    - name: Ensure chrony is running and enabled
+      service:
+        name: chrony
+        state: started
+        enabled: yes
