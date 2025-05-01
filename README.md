@@ -13,3 +13,14 @@ Install the docker engine here:
 
 ## How to run the app
 Use vagrant up --provison command
+
+## Initializing the Vagrant 
+  from hashicorp registry we pick ubuntu/jammy64 box
+```sh
+    vagrant init ubuntu/jammy64
+```
+## SSH into the Server 
+```sh
+    vagrant@127.0.0.1 -p 2222 -i ./path
+
+```
