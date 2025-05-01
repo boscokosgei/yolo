@@ -1,4 +1,3 @@
-[bosco-yolo-client]
-bosco-yolo-client ansible_connection=docker
+bosco-yolo-client ansible_host=172.20.0.4 ansible_port=2222 ansible_user=vagrant ansible_private_key_file=.vagrant/machines/default/virtualbox/private_key
 
-#bosco-yolo-client ansible_host=172.20.0.4 ansible_port=2222 ansible_user=vagrant ansible_private_key_file=.vagrant/machines/default/virtualbox/private_key
+

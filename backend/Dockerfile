@@ -21,5 +21,6 @@ COPY --from=build /app .
 # Expose your backend port
 EXPOSE 5000
 
+
 # Start the backend
 CMD ["node", "server.js"]
