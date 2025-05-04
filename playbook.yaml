@@ -1,6 +1,6 @@
-- name: Provision Vagrant VM
+- name: Provision Servers 
   hosts: all
-  become: yes
+  become: yes    #All commands being executed as sudo
   tasks: 
     - name: Ensure NTP (chrony) is installed
       apt:
@@ -14,4 +14,7 @@
         state: started
         enabled: yes
     - name: Test Connectivity
-      ping:   
+      ping:  
+    - name: Update Server
+      apt:
+        update_cache: yes 
