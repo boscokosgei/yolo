@@ -1,26 +1,25 @@
-# Stage 1: Build the React App
-FROM node:16-alpine AS build
+FROM node:14-slim   AS build
 
 WORKDIR /app
 
-COPY package*.json ./
+# Copy package.json and package-lock.json
+COPY package.json package-lock.json ./
+
 RUN npm install
 
 COPY . .
+
 RUN npm run build
 
-# Stage 2: Serve with a small Node + Serve image
-FROM node:16-alpine
+FROM node:16-alpine3.16
 
 WORKDIR /app
 
-# Install `serve` (only this, nothing else)
-RUN npm install -g serve
+COPY --from=build /app/build ./build
 
-# Copy only built static files
-COPY --from=build /app/build .
+RUN npm install -g serve
 
 EXPOSE 3000
 
-
-CMD ["serve", "-s", ".", "-l", "3000"]
+# Command to run the application
+CMD ["serve", "-s", "build", "-l", "3000"]
