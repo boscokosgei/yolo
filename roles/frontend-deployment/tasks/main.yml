@@ -1,0 +1,16 @@
+- name: Pull image from repository
+  docker_image:
+    name: boscokipkosgei/bosco-yolo-client:v1.0.0
+    source: pull
+
+- name: Create Node.js frontend Container
+  docker_container:
+    name: bosco-yolo-client
+    image: boscokipkosgei/bosco-yolo-client:v1.0.0
+    networks:
+      - name: app-net
+    ports:
+      - "3000:3000"
+    command: "npm start"
+    restart_policy: unless-stopped
+  become: yes

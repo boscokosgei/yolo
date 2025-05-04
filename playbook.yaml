@@ -1,20 +1,39 @@
-- name: Provision Servers 
+- name: Ansible playbook to dockerize and run Yolo e-commerce app using Ansible
   hosts: all
-  become: yes    #All commands being executed as sudo
-  tasks: 
-    - name: Ensure NTP (chrony) is installed
-      apt:
-        name: chrony
-        state: present
-        update_cache: yes
+  become: true
 
-    - name: Ensure chrony is running and enabled
-      service:
-        name: chrony
-        state: started
-        enabled: yes
-    - name: Test Connectivity
-      ping:  
-    - name: Update Server
+  pre_tasks:
+    - name: Check if Docker is installed
+      command: docker --version
+      ignore_errors: yes
+      register: docker_installed
+
+    - name: Install Docker if not installed
       apt:
-        update_cache: yes 
+        name: docker.io
+        state: present
+      when: docker_installed.failed
+
+    - name: Start and enable Docker service
+      service:
+        name: docker
+        state: started
+        enabled: true
+      when: docker_installed.failed
+
+    - name: Create Docker network
+      docker_network:
+        name: app-net
+        state: present
+
+  roles:
+    - role: setup-mongodb
+    - role: frontend-deployment
+    - role: backend-deployment
+
+  tasks:
+    # Removed Kubernetes deployment tasks
+
+  post_tasks:
+    # Removed verification tasks for Kubernetes services
+

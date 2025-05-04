@@ -1,0 +1,4 @@
+---
+container_name: bosco-yolo-client
+network: app-net
+volume: app-mongo-data/app
