@@ -1,4 +1,4 @@
- name: Pull image from repository
+- name: Pull image from repository
   docker_image:
     name: boscokipkosgei/bosco-yolo-backend:v1.0.0
     source: pull
