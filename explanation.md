@@ -88,8 +88,25 @@ volumes:
   app-mongo-data:
     driver: local
 ```
-
-## Git workflow used to achieve the task
+## Ansible Instrumentation
+Setting up Vagrantfile and ansible file to automate containerisation
+## Setting UP VM using Vagrant
+```sh
+  Spinning up a VM
+    Vagrant up
+```
+## Creating the ansible Playbook
+```sh
+   touch ansible.cfg
+   touch playbook.yaml
+```
+## Creating Roles for Frontend,Backend and MongoDb
+```sh
+   mkdir roles
+   mkdir frontend-deployment
+   mkdir tasks
+   mkdir vars
+```
 
 
 
