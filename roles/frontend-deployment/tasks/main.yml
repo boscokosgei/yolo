@@ -1,4 +1,4 @@
-- name: Pull image from repository
+- name: Pull image from Dockerhub
   docker_image:
     name: boscokipkosgei/bosco-yolo-client:v1.0.0
     source: pull
@@ -11,10 +11,6 @@
       - name: app-net
     ports:
       - "3000:3000"
-    # depends_on:
-    #   - bosco-yolo-backend
-    # environment:
-    #   - REACT_APP_BACKEND_URL=http://bosco-yolo-backend:5000
     command: "npm start"
     restart_policy: unless-stopped
   become: yes
