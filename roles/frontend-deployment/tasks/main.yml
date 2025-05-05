@@ -11,6 +11,6 @@
       - name: app-net
     ports:
       - "3000:3000"
-    command: "npm start"
+    # command: "npm start"
     restart_policy: unless-stopped
   become: yes
