@@ -32,8 +32,8 @@
     - role: backend-deployment
 
   tasks:
-    # Removed Kubernetes deployment tasks
+    
 
   post_tasks:
-    # Removed verification tasks for Kubernetes services
+    
 

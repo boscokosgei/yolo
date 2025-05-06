@@ -108,6 +108,16 @@ Setting up Vagrantfile and ansible file to automate containerisation
    mkdir setup-mongodb
 ```
 ## Deploying the application on The Server
+  This is achieved by running ansible playbook file inside the VM
+  the playbook checks if the VM instance had docker installed,if not it installs docker and creates network.Then it calls the roles tasks to pull images from dockerhub
+  ```sh
+     ansible-playbook -i hosts playbook.yaml
+  ```
+## Check the Status of Docker Containers
+ To check the frontend,backend and mongo db if they are running use the command
+```sh
+   docker ps
+```
 
 
 
