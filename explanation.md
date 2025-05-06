@@ -91,8 +91,8 @@ volumes:
 ## Ansible Instrumentation
 Setting up Vagrantfile and ansible file to automate containerisation
 ## Setting UP VM using Vagrant
+ Spinning up a VM
 ```sh
-  Spinning up a VM
     Vagrant up
 ```
 ## Creating the ansible Playbook
@@ -104,9 +104,11 @@ Setting up Vagrantfile and ansible file to automate containerisation
 ```sh
    mkdir roles
    mkdir frontend-deployment
-   mkdir tasks
-   mkdir vars
+   mkdir backend-deployment
+   mkdir setup-mongodb
 ```
+## Deploying the application on The Server
+
 
 
 
