@@ -5,7 +5,7 @@
   pre_tasks:
     - name: Check if Docker is installed
       command: docker --version
-      ignore_errors: yes
+      ignore_errors: true
       register: docker_installed
 
     - name: Install Docker if not installed

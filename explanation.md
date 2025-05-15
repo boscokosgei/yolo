@@ -118,6 +118,10 @@ Setting up Vagrantfile and ansible file to automate containerisation
 ```sh
    docker ps
 ```
+## IP3 Deploying The Application to Google Cloud Environment
+ Kubernetes Object used for deployment
+```sh
+```
 
 
 
