@@ -3,9 +3,10 @@ kind: Service
 metadata:
   name: frontend-service
 spec:
+  type: LoadBalancer
   selector:
-    app: frontend
+    app: bosco-yolo-client
   ports:
   - port: 3000
     targetPort: 3000
-  type: LoadBalancer
+    nodePort: 35000
