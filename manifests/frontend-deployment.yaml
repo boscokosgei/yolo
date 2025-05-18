@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bosco-yolo-client-deployment
+spec:
+  selector:
+    matchLabels:
+      app: bosco-yolo-client
+  template:
+    metadata:
+      labels:
+        app: bosco-yolo-client
+    spec:
+      containers:
+      - name: bosco-yolo-client
+        image: docker.io/boscokipkosgei/bosco-yolo-client:v1.0.0
+
+        ports:
+        - containerPort: 3000
