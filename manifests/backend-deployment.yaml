@@ -16,3 +16,7 @@ spec:
         image: docker.io/boscokipkosgei/bosco-yolo-backend:v1.0.0
         ports:
         - containerPort: 5000
+    env:
+      - name: MONGO_URI
+        value: "mongodb://bosskoech:nHXcO9RFOhfUluX1@.gallery.yvznhac.mongodb.net:27017,gallery.yvznhac.mongodb.net:27017,gallery.yvznhac.mongodb.net:27017/<dbname>?ssl=true&replicaSet=atlas-xxxx-shard-0&authSource=admin&retryWrites=true&w=majority"
+
