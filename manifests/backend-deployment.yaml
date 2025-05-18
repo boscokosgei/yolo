@@ -15,4 +15,4 @@ spec:
       - name: bosco-yolo-backend
         image: docker.io/boscokipkosgei/bosco-yolo-backend:v1.0.0
         ports:
-        - containerPort: <Port>
+        - containerPort: 5000
