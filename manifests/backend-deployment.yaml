@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bosco-yolo-backend-deployment
+spec:
+  selector:
+    matchLabels:
+      app: bosco-yolo-backend
+  template:
+    metadata:
+      labels:
+        app: bosco-yolo-backend
+    spec:
+      containers:
+      - name: bosco-yolo-backend
+        image: docker.io/boscokipkosgei/bosco-yolo-backend:v1.0.0
+        ports:
+        - containerPort: <Port>
