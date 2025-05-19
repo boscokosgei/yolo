@@ -5,7 +5,9 @@ Project to deploy an ecommerce app to google cloud engine.To use kubernetes mani
 - A Github account
 - Dockerhub account
 - Google Cloud account
--
+
+## Screenshot
+![alt text](Fontend.png)
 
 Step 1:Forking and cloning the repository
    Navigate to the link shared to fork the project
