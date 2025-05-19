@@ -119,9 +119,39 @@ Setting up Vagrantfile and ansible file to automate containerisation
    docker ps
 ```
 ## IP3 Deploying The Application to Google Cloud Environment
- Kubernetes Object used for deployment
-```sh
+ Kubernetes Object used for deployment ,Creating Manifest Files
+     frontend-deployment.yaml
+     backend-deployment.yaml
+     mongo-statefulset.yaml
+
+ Step 1.Ensure you have the following Requirements
+    Google Cloud Account
+    Google Gloud Project
+ Step 2 .Connect To GKE cluster from CLI
+```gcloud container clusters get-credentials my-k8s-cluster --zone us-central1-a --project my-k8s-project-460220
 ```
+ Step 3. Deplyoying the applicatio on Google cloud
+ use the kubectl to deploy deployment file and services
+ ```sh 
+      kubectl apply -f manifests/mongo-statefulset.yaml
+      kubectl apply -f manifests/backend-deployment.yaml
+      kubectl apply -f manifests/frontend-deployment.yaml
+ ```
+ Step 4. Depending on the Cluster Resources you might need to minimize the cpus and memory if the pods arent running
+  Check if the pods are runnning
+  ```sh
+      kubectl get pods
+  ```
+  After a few minutes, you should see the Pods in a Running state:
+ ```sh
+         NAME                            READY   STATUS    RESTARTS   AGE
+         client-5dcf9bc58f-5vqpn         1/1     Running   0          153m
+         mongo-0                         1/1     Running   0          169m
+         mongo-1                         1/1     Running   0          169m
+         mongo-2                         1/1     Running   0          169m
+         yolo-backend-6565787bcc-wkj8f   1/1     Running   0          157m
+ ```
+
 
 
 
