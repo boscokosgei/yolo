@@ -1,22 +1,41 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: bosco-yolo-backend-deployment
+  name: yolo-backend
+  labels:
+    app: yolo-backend
 spec:
+  replicas: 3
   selector:
     matchLabels:
-      app: bosco-yolo-backend
+      app: yolo-backend
   template:
     metadata:
       labels:
-        app: bosco-yolo-backend
+        app: yolo-backend
     spec:
       containers:
-      - name: bosco-yolo-backend
+      - name: yolo-backend
         image: docker.io/boscokipkosgei/bosco-yolo-backend:v1.0.0
         ports:
         - containerPort: 5000
         env:
-          - name: MONGO_URI
-            value: "mongodb://bosskoech:nHXcO9RFOhfUluX1@.gallery.yvznhac.mongodb.net:27017,gallery.yvznhac.mongodb.net:27017,gallery.yvznhac.mongodb.net:27017/<dbname>?ssl=true&replicaSet=atlas-xxxx-shard-0&authSource=admin&retryWrites=true&w=majority"
-
+        - name: MONGO_URL
+          value: "mongodb://$(MONGO_USERNAME):$(MONGO_PASSWORD)@mongo:27017"
+        - name: MONGO_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: mongo-secret
+              key: MONGO_USERNAME
+        - name: MONGO_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mongo-secret
+              key: MONGO_PASSWORD
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "50m"
+          limits:
+            memory: "256Mi"
+            cpu: "100m"

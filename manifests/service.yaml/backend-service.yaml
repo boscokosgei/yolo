@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: bosco-backend-service
+spec:
+  selector:
+    app: bosco-yolo-backend-service
+  ports:
+    - protocol: TCP
+      port: 5000
+      targetPort: 5000
+  type: ClusterIP  # Only exposes the service within the cluster
